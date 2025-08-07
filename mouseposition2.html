@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse position</title>
+</head>
+<style>
+    .pic{
+        width: 30%;
+        height: 300px;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        cursor: move;
+    }
+    h1
+    {
+        text-align: center;
+        color: blue;
+    }
+</style>
+<body style="background-color: rgb(1, 14, 19);">
+    <h1>Mouse position</h1>
+    <script>
+        var p;
+        for (var i = 0; i <= 25; i++) {
+            p = document.createElement("img");
+            p.src = "images/candle.png";
+            p.className = "pic";
+            document.body.appendChild(p);
+            p.style.left = Math.round() * 500 + "px";
+            p.style.top = Math.round() * 500 + "px";
+
+            (function (p) {
+                p.addEventListener("mousedown", function (e) {
+                    var rect = p.getBoundingClientRect();
+                    var x = e.clientX - rect.left;
+                    var y = e.clientY - rect.top;
+                    document.addEventListener("mousemove", move);
+                    document.addEventListener("mouseup", up);
+
+                    function move(e) {
+                        p.style.left = (e.clientX - x) + "px";
+                        p.style.top = (e.clientY - y) + "px";
+                    }
+
+                    function up() {
+                        document.removeEventListener("mousemove", move);
+                        document.removeEventListener("mouseup", up);
+                    }
+                });
+            })(p);
+        }
+
+    </script>
+</body>
+</html>

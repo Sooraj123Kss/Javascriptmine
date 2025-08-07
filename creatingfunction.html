@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Popup</title>
+</head>
+<body>
+    <audio id="audio1" controls>
+        <source src="a1.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        var box;
+        var a1;
+
+        function show_add() {
+            a1 = document.getElementById("audio1");
+            a1.play();
+
+            box = document.createElement("div");
+            document.body.appendChild(box);
+            box.style.cssText = "width:200px;height:300px;padding:10px;border:1px solid black;overflow:scroll;";
+            box.innerHTML = '<div onclick="closebox()" style="cursor:pointer;text-align:right;">❌</div><h4 style="text-align:center;">Info</h4>';
+            box.innerHTML += '<img src="images/landscape.jpg" alt="home image" style="width:100%;height:30%;">';
+            box.innerHTML += '<p>Lorem ipsum dolor sit amet.</p>';
+        }
+
+        function closebox() {
+            box.parentNode.removeChild(box);
+            a1.pause();
+        }
+
+        setTimeout(show_add, 2000);
+    </script>
+</body>
+</html>

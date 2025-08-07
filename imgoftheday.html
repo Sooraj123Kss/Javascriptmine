@@ -1,0 +1,68 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Alert</title>
+</head>
+<style>
+#pic{
+    width:70%;
+        margin:auto;
+        display:block;
+        box-shadow: 10px 10px 5px #888888;
+}
+#mes{
+    text-align: center;
+}
+</style>
+<body>
+      <h1 id="mes">Image of the Day</h1>
+      <img id="pic" src="images/p1.jpg">
+
+       
+      >
+    <script>
+        var r,g,b,c
+function change_color(){
+            r = Math.floor(Math.random() * 255);
+            g = Math.floor(Math.random() * 255);
+            b = Math.floor(Math.random() * 255);
+            c = `rgb(${r},${g},${b})`;
+            document.body.style.backgroundColor = c;
+            
+        }
+
+        function update_image() {
+          var d = new Date();
+          var today = d.getDay();
+          var pic = document.getElementById("pic");
+          switch(today) {
+            case 0:
+              pic.src = "images/p2.jpg";
+              break;
+            case 1:
+              pic.src = "images/p3.jpg";
+              break;
+            case 2:
+              pic.src = "images/p4.jpg";
+              break;
+            case 3:
+              pic.src = "images/p5.jpg";
+              break;
+            case 4:
+              pic.src = "images/p6.jpg";
+              break;
+            case 5:
+              pic.src = "images/p7.jpg";
+              break;
+            default:
+              pic.src = "images/p1.jpg";
+              break;
+          }
+        }
+
+        setInterval(change_color, 2000);
+        setInterval(update_image, 2000);
+    </script>
+</body>
+</html>

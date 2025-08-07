@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>var images</title>
+    <style>
+      .mystyle{
+        width:20%;
+        margin:auto;
+        display:block;
+        box-shadow: 10px 10px 5px #888888;
+      }
+    </style>
+</head>
+<body>
+    <h1>Image Gallery</h1>
+    <script>
+  var images = document.createElement("img");
+  document.body.appendChild(images);
+  images.src = "images/home.jpg";
+  images.style.border= "2px solid black";
+  images.className = "mystyle";
+    </script>
+</body>
+</html>
+     
+   

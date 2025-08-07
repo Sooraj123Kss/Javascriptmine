@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Dragmode</title>
+</head>
+<style>
+    .pic
+    {
+        width: 20%;
+        height:200px;
+        margin: auto;
+        display: block;
+        position:absolute;
+        cursor:move;
+        box-shadow: 10px 10px 5px gray;}
+
+
+</style>
+<body>
+    <h1>drag mode</h1>
+    <p>Drag the image below to see the effect.</p>
+    <img src="images/smartphone.png" class="pic" id="pic">
+
+
+    
+    <script>
+        var dragmode=false;
+        var x=0
+        var y=0
+
+        var pic = document.getElementById("pic");
+
+        document.addEventListener("mousemove", function(event) 
+        {
+            x=-100+event.pageX+"px";
+            y=-40+event.pageY+"px";
+            if (dragmode) {
+                pic.style.left = x;
+                pic.style.top = y;
+            }
+        })
+
+        pic.addEventListener("mousedown", function(){
+            dragmode=true;
+        })
+
+        pic.addEventListener("mouseup", function(){
+            dragmode=false;
+        })
+
+
+
+
+
+
+    </script>
+    
+    
+</body>
+</html>

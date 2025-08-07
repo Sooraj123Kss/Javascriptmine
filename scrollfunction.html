@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Gallery</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <style>
+    .mystyle {
+      width: 50%;
+      margin: auto;
+      display: block;
+      box-shadow: 10px 10px 5px #888888;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Image Gallery</h1>
+
+  <img src="images/p1.jpg" class="mystyle" id="img1" />
+  <div style="height: 200px;"></div>
+
+  <img src="images/p2.jpg" class="mystyle" />
+  <div style="height: 200px;"></div>
+
+  <img src="images/p3.jpg" class="mystyle" />
+  <div style="height: 200px;"></div>
+
+  <img src="images/p4.jpg" class="mystyle" />
+  <div style="height: 200px;"></div>
+
+  <script>
+    const img1 = document.getElementById("img1");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        img1.classList.add("animate__animated", "animate__bounceOutLeft");
+      } else {
+        img1.classList.remove("animate__bounceOutLeft");
+        img1.classList.add("animate__animated", "animate__bounceInLeft");
+      }
+    });
+  </script>
+</body>
+</html>
