@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard function</title>
+    <style>
+        body{
+            background-image: url('images/testee.gif');
+            background-size: cover;
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        #mes{
+            color: rgb(21, 2, 2);
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .visualizer {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 200px;
+            margin-top: 20px;
+        }
+        .bar {
+            transform-origin: 50% 0%;
+            position: relative;
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin-left: 30px;
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="mes">Press any key to play sound</h1>
+    <div class="visualizer" id="visualizer"></div>
+
+    <script>
+        var audio = new Audio();
+        
+        var r, g, b, h;
+        var d = [];
+        var mycolor;
+
+        function rgb(r, g, b) {
+            return "rgb(" + r + "," + g + "," + b + ")";
+        }
+  
+        var visualizer = document.getElementById("visualizer");
+        for (var i = 0; i < 4; i++) {
+            r = Math.round(Math.random() * 255);
+            g = Math.round(Math.random() * 255);
+            b = Math.round(Math.random() * 255);
+
+            mycolor = rgb(r, g, b);
+            h = Math.random() * 3 + 0.5;
+            d[i] = document.createElement("div");
+
+            visualizer.appendChild(d[i]);
+            d[i].className = "bar";
+            d[i].style.backgroundColor = mycolor;
+            d[i].style.transform = "scaleY(" + h + ")";
+        }
+
+        var m = document.getElementById("mes");
+
+        function f1(event) {
+            var k = event.keyCode;
+            m.innerHTML = "Code = " + k + " Character = " + event.key;
+            document.title = "keyCode = " + k;
+
+            var key = event.key.toLowerCase();
+            var audioSrc = "";
+            var bgColor = "";
+
+            switch (key) {
+                case "a": audioSrc = "audio/key01.mp3"; bgColor = "red"; break;
+                case "b": audioSrc = "audio/key02.mp3"; bgColor = "blue"; break;
+                case "c": audioSrc = "audio/key03.mp3"; bgColor = "green"; break;
+                case "d": audioSrc = "audio/key04.mp3"; bgColor = "yellow"; break;
+                case "e": audioSrc = "audio/key05.mp3"; bgColor = "purple"; break;
+                case "f": audioSrc = "audio/key06.mp3"; bgColor = "orange"; break;
+                case "g": audioSrc = "audio/key07.mp3"; bgColor = "red"; break;
+                case "h": audioSrc = "audio/key08.mp3"; bgColor = "blue"; break;
+                case "i": audioSrc = "audio/key09.mp3"; bgColor = "green"; break;
+                case "j": audioSrc = "audio/key10.mp3"; bgColor = "yellow"; break;
+                case "k": audioSrc = "audio/key11.mp3"; bgColor = "purple"; break;
+                case "l": audioSrc = "audio/key12.mp3"; bgColor = "orange"; break;
+                case "m": audioSrc = "audio/key13.mp3"; bgColor = "red"; break;
+                case "n": audioSrc = "audio/key14.mp3"; bgColor = "blue"; break;
+                case "o": audioSrc = "audio/key15.mp3"; bgColor = "green"; break;
+                case "p": audioSrc = "audio/key16.mp3"; bgColor = "yellow"; break;
+                case "q": audioSrc = "audio/key17.mp3"; bgColor = "purple"; break;
+                case "r": audioSrc = "audio/key18.mp3"; bgColor = "orange"; break;
+                case "s": audioSrc = "audio/key19.mp3"; bgColor = "red"; break;
+                case "t": audioSrc = "audio/key20.mp3"; bgColor = "blue"; break;
+                case "u": audioSrc = "audio/key21.mp3"; bgColor = "green"; break;
+                case "v": audioSrc = "audio/key22.mp3"; bgColor = "yellow"; break;
+                case "w": audioSrc = "audio/key23.mp3"; bgColor = "purple"; break;
+                case "x": audioSrc = "audio/key24.mp3"; bgColor = "orange"; break;
+                case "y": audioSrc = "audio/key01.mp3"; bgColor = "red"; break;
+                case "z": audioSrc = "audio/key02.mp3"; bgColor = "blue"; break;
+                default: audioSrc = ""; bgColor = ""; break;
+            }
+
+            if (audioSrc) {
+                var snd = new Audio(audioSrc);
+                snd.play().catch(function(error) {
+                    console.log("Audio playback failed:", error);
+                });
+            }
+            
+            if (bgColor) {
+                document.body.style.backgroundColor = bgColor;
+            }
+
+            animateVisualizer();
+
+            document.title = "Ready";
+        }
+
+        function animateVisualizer() {
+            for (var i = 0; i < d.length; i++) {
+                var newScale = Math.random() * 3 + 0.5;
+                d[i].style.transform = "scaleY(" + newScale + ")";
+            }
+        }
+
+        document.body.addEventListener("keydown", f1);
+
+        setTimeout(function() {
+            document.title = "Keyboard function";
+        }, 100);
+    </script>
+</body>
+</html>
