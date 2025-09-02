@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Showcase</title>
+    <style>
+        body {
+            background-image: url("images/landscape.jpg");
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .app-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .app-card {
+            flex: 1;
+            min-width: 200px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .app-card img {
+            width: 100%;
+            height: 150px;
+            background-color: #ddd;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .app-card a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .app-card a:hover {
+            background-color: #0056b3;
+        }
+        .description {
+            background-color: white;
+            background: linear-gradient(to bottom, #1a99cb, #ffffff);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .app-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            background-color: #ddd;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 768px) {
+            .app-card {
+            flex: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: white;">Our Apps</h1>
+        <div class="app-grid">
+            <div class="app-card">
+                <img src="images/portfolio.png" alt="App 1 Placeholder">
+                <h3>App 1</h3>
+                <a href="https://example.com/app1">Download App 1</a>
+            </div>
+            <div class="app-card">
+                <img src="images/piano_icon.png" alt="App 2 Placeholder">
+                <h3>App 2</h3>
+                <a href="https://example.com/app2">Download App 2</a>
+            </div>
+            <div class="app-card">
+                <img src="images/app_screen.png" alt="App 3 Placeholder">
+                <h3>App 3</h3>
+                <a href="https://example.com/app3">Download App 3</a>
+            </div>
+            <div class="app-card">
+                <img src="images/calender.png" alt="App 4 Placeholder">
+                <h3>App 4</h3>
+                <a href="https://example.com/app4">Download App 4</a>
+            </div>
+        </div>
+        <div class="description">
+            <h1>App Descriptions</h1>
+            <h2>Kids Table</h2>
+            <p>A fun and interactive app for kids to learn and play with numbers and their Tables</p>
+            <h2>Portfolio</h2>
+            <p>A personal portfolio app showcasing projects and skills.</p>
+            <h2>Piano App</h2>
+            <p>An interactive piano app for learning and playing music.</p>
+            <h2>DDate and Time Sample</h2>
+            <p>A simple app for displaying and manipulating date and time.</p>
+
+        </div>
+    </div>
+</body>
+</html>
