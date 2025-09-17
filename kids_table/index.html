@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Table calculator</title>
+</head>
+<style>
+    body {  background:url('images/landscape.jpg');
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 80%;
+            height:auto;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 24px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            background: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #388e3c;
+        }
+        .table-output {
+            font-size: 18px;
+            text-align: center;
+            background: #e8f5e9;
+            border-radius: 4px;
+            padding: 10px;
+        }
+
+</style>
+
+    <body>
+        <div class="container">
+            <h1>Table Calculator</h1>
+            <input type="number" id="numberInput" placeholder="Enter a number" />
+            <button id="calculateButton">Calculate</button>
+            <div class="table-output" id="tableOutput"></div>
+        </div>
+    </body>
+
+
+<script>
+    document.getElementById("calculateButton").addEventListener("click", function() {
+        const number = parseInt(document.getElementById("numberInput").value);
+        const output = document.getElementById("tableOutput");
+        output.innerHTML = "";
+
+        if (!isNaN(number)) {
+            for (let i = 1; i <= 10; i++) {
+                output.innerHTML += `${number} x ${i} = ${number * i}<br>`;
+            }
+        } else {
+            output.innerHTML = "Please enter a valid number.";
+        }
+    });
+</script>
+
+
+</body>
+</html>

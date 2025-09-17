@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Country and Date</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-image: url("p3.jpg");
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 30px;
+        }
+        #countryForm {
+            background: #fff;
+            max-width: 350px;
+            margin: 30px auto 0 auto;
+            padding: 20px 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            font-weight: 500;
+            color: #555;
+        }
+        select, input[type="submit"] {
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+        input[type="submit"] {
+            background: #74ebd5;
+            border: none;
+            color: #333;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        input[type="submit"]:hover {
+            background: #ACB6E5;
+        }
+        #result {
+            max-width: 350px;
+            margin: 20px auto;
+            padding: 18px 20px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            color: #222;
+            font-size: 1.1rem;
+            text-align: center;
+            word-break: break-word;
+        }
+        @media (max-width: 500px) {
+            #countryForm, #result {
+                max-width: 95vw;
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Country and Date Information</h1>
+    <form id="countryForm">
+        <label for="country">Select a country or city:</label>
+        <select id="country" name="country">
+            <option value="USA">USA (New York)</option>
+            <option value="Canada">Canada (Toronto)</option>
+            <option value="UK">UK (London)</option>
+            <option value="Australia">Australia (Sydney)</option>
+            <option value="India">India (Delhi)</option>
+            <option value="Japan">Japan (Tokyo)</option>
+            <option value="Brazil">Brazil (São Paulo)</option>
+            <option value="SouthAfrica">South Africa (Johannesburg)</option>
+            <option value="UAE">UAE (Dubai)</option>
+            <option value="Singapore">Singapore</option>
+        </select>
+        <input type="submit" value="Get Date">
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById("countryForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var country = document.getElementById("country").value;
+            var currentDate = new Date().toLocaleString("en-US", { timeZone: getTimeZone(country) });
+            document.getElementById("result").innerHTML = `
+                <strong>Current date and time:</strong><br>
+                <span>${currentDate}</span><br>
+                <strong>Location:</strong> ${getLocationName(country)}
+            `;
+        });
+
+        function getTimeZone(country) {
+            switch (country) {
+                case "USA":
+                    return "America/New_York";
+                case "Canada":
+                    return "America/Toronto";
+                case "UK":
+                    return "Europe/London";
+                case "Australia":
+                    return "Australia/Sydney";
+                case "India":
+                    return "Asia/Kolkata";
+                case "Japan":
+                    return "Asia/Tokyo";
+                case "Brazil":
+                    return "America/Sao_Paulo";
+                case "SouthAfrica":
+                    return "Africa/Johannesburg";
+                case "UAE":
+                    return "Asia/Dubai";
+                case "Singapore":
+                    return "Asia/Singapore";
+                default:
+                    return "UTC";
+            }
+        }
+
+        function getLocationName(country) {
+            switch (country) {
+                case "USA":
+                    return "USA (New York)";
+                case "Canada":
+                    return "Canada (Toronto)";
+                case "UK":
+                    return "UK (London)";
+                case "Australia":
+                    return "Australia (Sydney)";
+                case "India":
+                    return "India (Delhi)";
+                case "Japan":
+                    return "Japan (Tokyo)";
+                case "Brazil":
+                    return "Brazil (São Paulo)";
+                case "SouthAfrica":
+                    return "South Africa (Johannesburg)";
+                case "UAE":
+                    return "UAE (Dubai)";
+                case "Singapore":
+                    return "Singapore";
+                default:
+                    return "Unknown";
+            }
+        }
+    </script>
+</body>
+</html>
